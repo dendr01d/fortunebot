@@ -15,11 +15,12 @@ The main loop does this in order:
 
 markov.py contains all the nonsense for building the model
 feed it a corpus of text and it'll analyze it to build a simple markov graph
-before calling the generation function, kickstart its RNG with the current time or something, whatever
 
-test.py authorizes with twitter, posts a test tweet, waits for you to check to see if it posted, and then deletes said tweet
+test_tweet.py authorizes with twitter, posts a test tweet, waits for you to check to see if it posted, and then deletes said tweet
 
+test_markov.py creates a graph made of a corpus with a single line, displays the internal structure of the graph, and then spits out 10 generated text snippets
 
 Stuff I may want to implement later:
 -lucky numbers
 -let people tweet pictures of fortunes to the bot, then have it read them and add them to the corpus
+-when people like or retweet a fortune, reinforce the connections that built it (just feed them back into the model?) so that it'll make more like it
