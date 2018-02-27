@@ -31,11 +31,11 @@ class Graph:
 	# eventually I may want punctuation to be tokenized?
 	def formatText(self, text):
 		text = text.lower()
-		text = text.strip(" .!?\n").split(' ')
-		#for word in text:
-		#	word = word.strip(" ,.\"!?\n")
+		text = text.strip() # for any extra whitespace
+		text = text.split(' ')
+		newText = [word.strip(" ,.!?;:-\'\"\n") for word in text]
 		
-		return text
+		return newText
 
 
 	# adds a snippet of text to the web
