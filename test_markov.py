@@ -1,19 +1,21 @@
-from markov import *
+from markov2 import *
 
 
 chain = Graph()
 chain.feedCorpus('singleFortune.txt')
-chain.printWeb()
+# chain.printWeb()
 
-print ('\n\nNow for some generation...')
-
-for i in range(0, 10):
-	print(chain.generate())
+# for i in range(0, 10):
+#	print(chain.generate())
 
 
 longerChain = Graph()
 longerChain.feedCorpus('EICorpus.txt')
-longerChain.printWeb()
+# longerChain.printWeb()
 
-for i in range(0, 40):
+longerChain.feedCorpus('bmc_fortuneCorpus.txt')
+longerChain.feedCorpus('author-quote.txt')
+
+
+for i in range(0, 50):
 	print(longerChain.generate())

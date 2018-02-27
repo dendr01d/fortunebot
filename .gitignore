@@ -1,5 +1,6 @@
 *.log
 *~
+*pyc
 
 # ignore sensitive files
 *sensitive*

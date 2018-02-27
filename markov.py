@@ -33,7 +33,7 @@ class Graph:
 		text = text.lower()
 		text = text.strip() # for any extra whitespace
 		text = text.split(' ')
-		newText = [word.strip(" ,.!?;:-\'\"\n") for word in text]
+		newText = [word.strip(" ,.!?;:-[]%*()\'\"\n") for word in text]
 		
 		return newText
 
