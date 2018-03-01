@@ -47,11 +47,11 @@ class Graph:
 	def addSnippet(self, text):
 		
 		formattedText = self.formatText(text)
-		if 'i' in formattedText or 'me' in formattedText:
-			return		
+		for word in formattedText:
+			if word == '':
+				del word
 
-
-		wordList = ['<START1>', '<START2>'] + self.formatText(text) + ['<END>']
+		wordList = ['<START1>', '<START2>'] + formattedText + ['<END>']
 		
 		for i in range(0, len(wordList)-2):
 			self.addWord(wordList[i], wordList[i+1], wordList[i+2])
@@ -65,6 +65,8 @@ class Graph:
 		inFile.close()
 
 		for snippet in fileLines:
+			if snippet == '\n':
+				pass
 			self.addSnippet(snippet)
 		
 	# given a word pair, pulls another word out of the web

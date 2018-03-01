@@ -1,4 +1,4 @@
-from markov import *
+from markov2 import *
 
 
 chain = Graph()
@@ -14,7 +14,7 @@ longerChain.feedCorpus('EICorpus.txt')
 # longerChain.printWeb()
 
 longerChain.feedCorpus('handmade_corpus')
-longerChain.printWeb()
+
 
 for i in range(0, 50):
 	print(longerChain.generate())
