@@ -24,3 +24,4 @@ Stuff I may want to implement later:
 -let people tweet pictures of fortunes to the bot, then have it read them and add them to the corpus
 -when people like or retweet a fortune, reinforce the connections that built it (just feed them back into the model?) so that it'll make more like it
 -Occasionally mutate words, let the aforementioned reinforcement build more novel connections?
+-To accomplish either of the latter 2 things though I'll need to come up with a way of saving the model instead of rebuilding it every time I start the bot
