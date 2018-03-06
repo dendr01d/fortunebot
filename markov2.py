@@ -1,5 +1,11 @@
 import random
 
+
+# this variable determines mutation rate
+# see the generate() function for details
+threshold = 1
+
+
 class Graph:
 	web = {}
 	
@@ -72,9 +78,12 @@ class Graph:
 	# given a word pair, pulls another word out of the web
 	def genWord(self, word1, word2):
 		wordPair = (word1, word2)
-		rnum = random.randint(0, self.web[wordPair][1])
+		numConnections = self.web[wordPair][1]
+		
 		newWord = 'N/A'
 
+		rnum = random.randint(0, self.web[wordPair][1])
+	
 		for option in self.web[wordPair][0]:
 			if rnum < 0:
 				break
@@ -101,8 +110,16 @@ class Graph:
 
 		while word2 != '<END>' and len(text) < 250:
 			newWord = self.genWord(word1, word2)
-			text = text + ' '
-			text = text + newWord
+
+			# occasionally if a word pair has connections below a predefined threshold
+			# randomly pick a new word to stick into the output instead of the generated one
+			# the odds of this happening scale with the number of connections vs threshold
+			
+			if random.randint(0, threshold) > self.web[(word1, word2)][1]:
+				text = text + ' [' + random.choice(list(self.web))[0] + ']'
+			else:
+				text = text + ' ' + newWord
+
 			word1 = word2
 			word2 = newWord
 		

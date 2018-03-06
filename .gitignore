@@ -1,6 +1,8 @@
 *.log
 *~
-*pyc
+*.pyc
+*.pkl
+*.swp
 
 # ignore sensitive files
 *sensitive*
