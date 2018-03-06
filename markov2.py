@@ -15,11 +15,22 @@ class Graph:
 	# the second tuple is comprised of another dict and an int
 	# the dict pairs more strings (words) with their relative weight
 	# the int is the sum of all the weights
+	
+
+	# apparently pickle can't save classes wholesale so here's this :|
+	def export(self):
+		print('Exporting web...')
+		return self.web
+
+	def load(self, data):
+		print('Loading data into graph...')
+		self.web = data
+
 
 	# displays the web
 	def printWeb(self):
 		for wordPair in self.web:
-			print('\n{} / {} ({}):'.format(wordPair(0), wordPair(1), self.web[wordPair][1]))
+			print('\n{} / {} ({}):'.format(wordPair[0], wordPair[1], self.web[wordPair][1]))
 			
 			for word3 in self.web[wordPair][0]:
 				print('\t{} {}'.format(word3, self.web[wordPair][0][word3]))
