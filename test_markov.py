@@ -1,20 +1,15 @@
 from markov import *
 
+model = markovModel()
+model.feedCorpus('singleFortune.txt')
+model.stt.printGraph()
 
-chain = Graph()
-chain.feedCorpus('singleFortune.txt')
-# chain.printWeb()
-
-# for i in range(0, 10):
-#	print(chain.generate())
+for i in range(0, 5):
+	print(model.generate())
 
 
-longerChain = Graph()
-longerChain.feedCorpus('EICorpus.txt')
-# longerChain.printWeb()
-
-longerChain.feedCorpus('handmade_corpus')
-longerChain.printWeb()
+model.feedCorpus('EICorpus.txt')
+model.feedCorpus('handmadeCorpus.txt')
 
 for i in range(0, 50):
-	print(longerChain.generate())
+	print(model.generate())
